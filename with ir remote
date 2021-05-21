@@ -20,14 +20,16 @@ IRrecv rec(3);
 decode_results res;
 Servo servo;
 
+#define serv servopin
+
 char StorePass[]="your password";
 int i=0,count=0,number=sizeof(StorePass)-1;
 char pass[sizeof(StorePass)-1];
 
 int relay1 = relaypin1 ;
 int relay2 = relaypin2 ;
-int relay2 = relaypin3 ;
-int relay2 = relaypin4 ;
+int relay3 = relaypin3 ;
+int relay4 = relaypin4 ;
 
 void setup(){
  servo.attach(4);
