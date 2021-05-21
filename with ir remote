@@ -30,7 +30,6 @@ int relay2 = relaypin3 ;
 int relay2 = relaypin4 ;
 
 void setup(){
- pinMode(led,OUTPUT);
  servo.attach(4);
  rec.enableIRIn();
  pinMode(relay1,OUTPUT);
