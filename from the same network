@@ -16,16 +16,18 @@ char keys[row][col]={
   {'*','0','#','D'}
 };
 
-byte rowpin[row]={12,11,10,9};
-byte colpin[col]={8,7,6,5};
+byte rowpin[row]={r1,r2,r3,r4};
+byte colpin[col]={c1,c2,c3,c4};
 
 Keypad kpd(makeKeymap(keys),rowpin,colpin,row,col);
 Servo servo;
 
-int in1=D5;
-int in2=D6;
-int in3=D7;
-int in4=D8;
+#define serv servopin
+
+int in1=rel1;
+int in2=rel2;
+int in3=rel3;
+int in4=rel4;
 
 char StorePass[]="123123";
 int i=0,count=0,number=sizeof(StorePass)-1;
@@ -34,7 +36,7 @@ char pass[sizeof(StorePass)-1];
 WiFiServer server(80);
 
 void setup(){
-  
+servo.attach(serv);
 Serial.begin(115200);
 delay(10);
 pinMode(in1, OUTPUT);
