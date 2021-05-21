@@ -13,6 +13,8 @@ char keys[row][col]={
   {'*','0','#','D'}
 };
 
+#define serv servopin
+
 byte rowpin[row]={12,11,10,9};
 byte colpin[col]={8,7,6,5};
 
@@ -34,6 +36,7 @@ void setup() {
   for(int i=4;i<9;i++){
     pinMode(i,OUTPUT);
   }
+  servo.attach(serv);
 }
 
 void loop() {
