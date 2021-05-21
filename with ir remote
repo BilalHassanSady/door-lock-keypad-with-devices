@@ -12,15 +12,15 @@ char keys[row][col]={
   {'*','0','#','D'}
 };
 
-byte rowpin[row]={12,11,10,9};
-byte colpin[col]={8,7,6,5};
+byte rowpin[row]={r1,r2,r3,r4};
+byte colpin[col]={c1,c2,c3,c4};
 
 Keypad kpd(makeKeymap(keys),rowpin,colpin,row,col);
 IRrecv rec(3);
 decode_results res;
 Servo servo;
 
-char StorePass[]="123123";
+char StorePass[]="your password";
 int i=0,count=0,number=sizeof(StorePass)-1;
 char pass[sizeof(StorePass)-1];
 
