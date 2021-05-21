@@ -29,7 +29,7 @@ int in2=rel2;
 int in3=rel3;
 int in4=rel4;
 
-char StorePass[]="123123";
+char StorePass[]="your password";
 int i=0,count=0,number=sizeof(StorePass)-1;
 char pass[sizeof(StorePass)-1];
 
