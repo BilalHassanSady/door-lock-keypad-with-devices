@@ -1,0 +1,87 @@
+#include<SoftwareSerial.h>
+#include <Servo.h>
+#include <Keypad.h>
+
+const byte row = 4;
+const byte col = 4;
+
+char keys[row][col]={
+  {'1','2','3','A'},
+  {'4','5','6','B'},
+  {'7','8','9','C'},
+  {'*','0','#','D'}
+};
+
+byte rowpin[row]={12,11,10,9};
+byte colpin[col]={8,7,6,5};
+
+SoftwareSerial bt(2,3);
+Keypad kpd(makeKeymap(keys),rowpin,colpin,row,col);
+Servo servo;
+
+#define IN1 5
+#define IN2 6
+#define IN3 7
+#define IN4 8
+
+
+void setup() {
+  bt.begin(9600);
+  for(int i=4;i<9;i++){
+    pinMode(i,OUTPUT);
+  }
+}
+
+void loop() {
+  if(bt.available()>0){
+    char data = bt.read();
+    switch(data){
+      case 'a':
+        digitalWrite(IN1,HIGH);
+        break;
+      case 'b':
+        digitalWrite(IN1,LOW);
+        break;
+      case 'c':
+        digitalWrite(IN2,HIGH);
+        break;
+      case 'd':
+        digitalWrite(IN2,LOW);
+        break; 
+      case 'e':
+        digitalWrite(IN3,HIGH);
+        break; 
+      case 'f':
+        digitalWrite(IN3,LOW);
+        break;
+      case 'g':
+        digitalWrite(IN4,HIGH);
+        break;
+      case 'h':
+        digitalWrite(IN4,LOW);
+    }
+  }
+  key_sec();
+}
+
+void key_sec(){
+ char key = kpd.getKey();
+  if (key>'0'&&key!='D'){
+    pass[i]=key;
+    i++;
+  }
+  if(key=='D'){
+    if(i==number){
+      for(int j=0;j<number;j++){
+        if(pass[j]==StorePass[j])count++;
+      }
+      if(count==number){
+        servo.write(165);
+        delay(2000);
+        i=0;
+        count=0;
+      }
+    }
+  }
+  servo.write(5);
+}
