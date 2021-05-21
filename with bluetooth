@@ -1,4 +1,5 @@
 #include<SoftwareSerial.h>
+SoftwareSerial bt(2,3);
 #include <Servo.h>
 #include <Keypad.h>
 
@@ -15,9 +16,12 @@ char keys[row][col]={
 byte rowpin[row]={12,11,10,9};
 byte colpin[col]={8,7,6,5};
 
-SoftwareSerial bt(2,3);
 Keypad kpd(makeKeymap(keys),rowpin,colpin,row,col);
 Servo servo;
+
+char StorePass[]="123123";
+int i=0,count=0,number=sizeof(StorePass)-1;
+char pass[sizeof(StorePass)-1];
 
 #define IN1 5
 #define IN2 6
